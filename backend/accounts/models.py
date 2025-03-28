@@ -1,7 +1,7 @@
-from core.database import db
+from core.database import Database
 from portal.base import BaseModel
 
 
 class Account(BaseModel):
-    collection = db.accounts
+    collection_name = Database.get_db()["accounts"]
 
