@@ -1,17 +1,17 @@
 Here's a **README.md** file for your FastAPI project with MongoDB. It includes setup instructions, project structure, and usage details. 🚀  
 
----
+
 
 ### **📌 `README.md` for FastAPI with MongoDB**
 ```markdown
 # 🚀 FastAPI + MongoDB Boilerplate
 
 A structured FastAPI project with MongoDB, following best practices for modularity and scalability.
+```
 
----
 
-## 🏗️ Project Structure
-
+## **🏗️ Project Structure** 
+```
 
 fastapi_project/
 │── core/
@@ -34,7 +34,7 @@ fastapi_project/
 │── README.md           # Project documentation
 │── requirements.txt    # Dependencies
 
-
+```
 
 
 ## 🛠️ Setup Instructions
@@ -43,19 +43,19 @@ fastapi_project/
 ```sh
 git clone https://github.com/Umair-Rinde/fastapi-api-seed.git
 cd fastapi-mongo-template
-
+```
 
 ### 2️⃣ Create a Virtual Environment
 ```sh
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux
 venv\Scripts\activate     # On Windows
-
+```
 
 ### 3️⃣ **Install Dependencies**
 ```sh
 pip install -r requirements.txt
-
+```
 
 ### 4️⃣ **Set Up Environment Variables**
 Create a `.env` file in the `core/` directory:
