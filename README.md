@@ -12,7 +12,7 @@ A structured FastAPI project with MongoDB, following best practices for modulari
 
 ## 🏗️ Project Structure
 
-```
+
 fastapi_project/
 │── core/
 │   ├── config.py       # Configuration settings (reads from .env)
@@ -33,29 +33,29 @@ fastapi_project/
 │── main.py             # FastAPI app entry point
 │── README.md           # Project documentation
 │── requirements.txt    # Dependencies
-```
 
----
+
+
 
 ## 🛠️ Setup Instructions
 
 ### 1️⃣ **Clone the Repository**
 ```sh
-git clone https://github.com/Umair-Rinde/fastapi-mongo-template.git
+git clone https://github.com/Umair-Rinde/fastapi-api-seed.git
 cd fastapi-mongo-template
-```
 
-### 2️⃣ **Create a Virtual Environment**
+
+### 2️⃣ Create a Virtual Environment
 ```sh
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux
 venv\Scripts\activate     # On Windows
-```
+
 
 ### 3️⃣ **Install Dependencies**
 ```sh
 pip install -r requirements.txt
-```
+
 
 ### 4️⃣ **Set Up Environment Variables**
 Create a `.env` file in the `core/` directory:
