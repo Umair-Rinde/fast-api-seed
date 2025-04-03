@@ -1,29 +1,33 @@
 from motor.motor_asyncio import AsyncIOMotorClient
-from pymongo.errors import PyMongoError
-import logging
-from core.config import settings
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Database:
-    _client: AsyncIOMotorClient = None
-    _db = None
+    client = None
 
-    @classmethod
-    async def connect(cls):
-        try:
-            cls._client = AsyncIOMotorClient(settings.MONGO_URI)
-            cls._db = cls._client[settings.MONGO_DB_NAME]
-            logging.info("Connected to MongoDB")
-        except PyMongoError as e:
-            logging.error(f"Failed to connect to MongoDB: {e}")
+    @staticmethod
+    async def connect():
+        if Database.client is None:
+            mongo_uri = os.getenv("MONGO_URI")
+            db_name = os.getenv("DB_NAME")
 
-    @classmethod
-    async def close(cls):
-        if cls._client:
-            cls._client.close()
-            logging.info("MongoDB connection closed")
+            if "." in db_name:
+                raise ValueError("Database name cannot contain a '.' character.")
 
-    @classmethod
-    def get_db(cls):
-        if cls._db is None:
-            raise Exception("Database is not connected. Call `Database.connect()` first.")
-        return cls._db
+            Database.client = AsyncIOMotorClient(mongo_uri)
+            print("Connected to MongoDB.")
+
+    @staticmethod
+    def get_db():
+        if Database.client is None:
+            raise Exception(" Database is not connected. Call `Database.connect()` first.")
+        return Database.client[os.getenv("DB_NAME")]
+
+    @staticmethod
+    async def close():
+        if Database.client:
+            Database.client.close()
+            Database.client = None
+            print("Database connection closed.")

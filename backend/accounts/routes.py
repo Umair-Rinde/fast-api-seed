@@ -1,13 +1,5 @@
-from fastapi import APIRouter
-from .schemas import AccountSchema
-from .apis import create_account, get_all_accounts
+from .apis import user_api
+from portal.base import BaseRouter 
 
-router = APIRouter()
-
-@router.post("/")
-async def post_account(account: AccountSchema):
-    return await create_account(account)
-
-@router.get("/")
-async def get_accounts():
-    return await get_all_accounts()
+#CRUD Routes for User
+router = BaseRouter(user_api).router 

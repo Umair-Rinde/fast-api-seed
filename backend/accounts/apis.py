@@ -1,10 +1,6 @@
-from .schemas import AccountSchema
-from .models import Account
+from .schemas import UserSchema, UserSchemaUpdate
+from .models import User
+from portal.base import  BaseApi
 
-async def create_account(account: AccountSchema):
-    account_dict = account.model_dump() 
-    account_id = await Account.create(account_dict)
-    return {"id": account_id}
-
-async def get_all_accounts():
-    return await Account.get_all()
+# CRUD operations for User
+user_api = BaseApi(model=User, schema=UserSchema, update_schema=UserSchemaUpdate)

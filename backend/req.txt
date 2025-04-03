@@ -1,0 +1,7 @@
+uvicorn
+fastapi
+pymongo
+motor
+python-dotenv
+pydantic
+pydantic-settings
